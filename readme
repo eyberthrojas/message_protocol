@@ -1,0 +1,24 @@
+SYSTEM REQUIREMENTS
+	- Ubuntu 16.04 64 bits
+	- ROS Kinetic
+	- Catkin workspace
+INCLUIR
+	- En archivo .bashrc al final y cambiando **usuario** por el nombre del usuario:
+
+source /opt/ros/kinetic/setup.bash
+source /home/**usuario**/catkin_ws/devel/setup.bash
+export ROS_WORKSPACE=/home/**usuario**/catkin_ws
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$ROS_WORKSPACE
+export ROSCONSOLE_FORMAT='[${severity}] [${time}]: ${message}'
+
+
+COMPILAR
+	- cd ~/catkin_ws/src
+	- git clone https://github.com/eyberthrojas/message_protocol.git
+	- roscd
+	- catkin_make
+	
+EJECUCIÓN
+	- roscore 
+	- rosrun  message_protocol emitter_node  (En un nuevo terminal)
+        - rosrun  message_protocol receiver_node  (En un nuevo terminal)
